@@ -25,14 +25,7 @@ ENV_DIR=${3:-}
 BIN_DIR=$BUILD_DIR/.chromedriver/bin
 mkdir -p $BIN_DIR
 
-if [ -f $ENV_DIR/CHROMEDRIVER_VERSION ]; then
-  VERSION=$(cat $ENV_DIR/CHROMEDRIVER_VERSION)
-else
-  topic "Looking up latest chromedriver version"
-  LATEST="https://chromedriver.storage.googleapis.com/LATEST_RELEASE"
-  VERSION=`curl -s $LATEST`
-fi
-indent "Version $VERSION"
+VERSION="80.0.3987.16"
 
 topic "Downloading chromedriver v$VERSION"
 ZIP_URL="https://chromedriver.storage.googleapis.com/$VERSION/chromedriver_linux64.zip"
